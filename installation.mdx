@@ -1,0 +1,262 @@
+---
+title: "Installation"
+---
+
+# Prerequisites 
+
+- Fresh machine with Ubuntu 24.04 LTS (other Linux OS may work as well, but not tested). We do not recommend using machines that have other services running except you understand what you are doing.
+- System Requirements:
+- Broadband internet connections
+
+| | | |
+| --- | --- | --- |
+| | | |
+| | | |
+
+Installation Steps
+
+First, you need to clone the repository:
+
+```
+git clone https://github.com/sguresearcher/nusantara.git
+```
+
+Move to the directory and execute the installation script:
+
+```
+cd nusantara
+chmod +x setup.sh
+./setup.sh
+```
+
+To install the main T-Guard components, you need to install from step 1 to step 6 in Figure 1.
+
+![Figure 1. T-Guard Installer Main Menu](/images/image\(1\).png)
+
+## **Step 1: Update System and Install Prerequisites**
+
+In the step 1, during update system and install prerequisites, if you encounter a popup, just click Ok.
+
+## **Step 2: Install Docker**
+
+In the step 2, after Docker installation, to make sure the Docker service is running well, you can execute the following command:
+
+```
+sudo systemctl status docker
+```
+
+![Image(1) Avi](/images/image\(1\).avif)
+
+The green text indicates Docker is running well as illustrated in Figure 2.
+
+## **Step 3: Install Wazuh (SIEM)**
+
+We can proceed to the next step, installing Wazuh, which serves as SIEM. This step will take quite a long time, depending on the internet connection speed.
+
+![Image(3) Pn](/images/image\(3\).png)
+
+After the Wazuh installation success, we deploy the Wazuh Agent in the machine. Insert your machine **IP Address **and **Wazuh Agent**. In example, as illustrated in Figure 4.
+
+![Image(2) Pn](/images/image\(2\).png)
+
+After the process is finished, go to your browser and check your Wazuh by following this link:
+
+**https://\<your_ip\>**
+
+![Image(4) Pn](/images/image\(4\).png)
+
+You will see a warning from the browser that the certificate is invalid as illustrated in Figure 5. This is normal because we haven’t installed the signed SSL certificate, which is recommended for production. For now, just click proceed.
+
+The first page of Wazuh should be as illustrated in Figure 6.
+
+![Image(2) Avi](/images/image\(2\).avif)
+
+Log in using **the credentials mentioned at the bottom of the page**. After log in, you should see Figure 7
+
+![Image(5) Pn](/images/image\(5\).png)
+
+## **Step 4: Install Shuffle (SOAR)**
+
+Proceed installing Shuffle by execute step 4.
+
+After installation process is finished, go to your browser and check your Shuffle by following this link:
+
+**http://\<ip\>:3001**
+
+Create administrator account and login using the credentials mentioned at the bottom of the page. After log in, you should see Figure 8.
+
+![Image(6) Pn](/images/image\(6\).png)
+
+## **Step 5: Install DFIR-IRIS (Incident Response/Ticketing)**
+
+Execute step 5.
+
+After installation process is finished, go to your browser and check your IRIS by following this link:
+
+**https://\<ip\>:8443**
+
+Sign in using the credentials mentioned at the bottom of the page. After log in, you should see Figure 9.
+
+![Image(3) Avi](/images/image\(3\).avif)
+
+## **Step 6: Install MISP (Threat Intell)**
+
+Execute step 6.
+
+After installation process is finished, go to your browser and check your MISP by following this link:
+
+**https://\<ip\>:1443**
+
+Sign in using the credentials mentioned at the bottom of the page. After log in, you should see Figure 10.
+
+![Image(7) Pn](/images/image\(7\).png)
+
+## **Additional Step (Only for "minimum requirement" system)**
+
+Execute step 15, to activate swap memory.
+
+**_This is the final step of the Installation Steps phase. Next, we will Integrate all the module in the next page (Integration Steps)._**
+
+**The default credential for T-Guard:**
+
+| **Service** | **Web Interface**   | **Username**     | **Password**           |
+| ----------- | ------------------- | ---------------- | ---------------------- |
+| Wazuh       | https://\<ip\>      | admin            | SecretPassword         |
+| DFIR-IRIS   | https://\<ip\>:8443 | administrator    | MySuperAdminPassword\! |
+| Shuffle     | http://\<ip\>:3001  | administrator    | MySuperAdminPassword\! |
+| MISP        | https://\<ip\>:1443 | admin@admin.test | admin                  |
+
+## Integration Steps
+
+**Step 7: Integration IRIS and Wazuh**
+
+Execute step 7.
+
+It will ask the IRIS API key. To get the API Key, go to IRIS page, select Administrator profile \> My Settings. The API Key will show up as illustrated in Figure 11.
+
+![Satu Pn](/images/satu.png)
+
+Copy and paste it to the installation. Wait until the process is finished.
+
+Then check the integration by select Alert menu in the left panel of the IRIS. It should be still "0 Alert".
+
+We need to trigger the alert, by execute the step 14 (Brute Force Use Case). After that, refresh the page and the first alert should be show up as illustrated in Figure 12.
+
+![Dua Pn](/images/dua.png)
+
+## **Step 8: Integration MISP and Wazuh**
+
+Execute the step 8. Wait until it finished.
+
+## **Step 9: Integration VirusTotal and Wazuh**
+
+Execute step 9.
+
+It will ask the VirusTotal API key. If you not yet have the VirusTotal account, please create the VirusTotal account first. If you already have it, Log in to VirusTotal, then  click your profile name, select API Key.
+
+Copy and paste it to the installation. Wait until the process is finished.
+
+## **Step 10: Integration Shuffle, Wazuh, and IRIS**
+
+In your browser, go to your Shuffle (**http://\<ip\>:3001**).
+
+Select Workflow \> New Workflow.
+
+Enter your workflow name \> select Done.
+
+Select the Shuffle icon in the middle panel, then it will show up the configuration panel on the right. In the "Call" parameter, change it to `$exec`, then click Save button, as illustrated in Figure 13.
+
+![Tiga Pn](/images/tiga.png)
+
+Next, in the left panel, select Trigger tab, then drag the Webhook to the middle panel as illustrated in Figure 14.
+
+![Empat Pn](/images/empat.png)
+
+The Webhook module, will be as an alert/event feed from Wazuh.
+
+To integrate the Webhook with Wazuh, click on Webhook module. On the right panel, go to "Webhook URI" parameter and copy it, also click the Start button as illustrated in Figure 15.
+
+![Lima Pn](/images/lima.png)
+
+Go back to installer and execute step 10.
+
+It will ask the Shuffle Hook URL, paste the Webhook URI to it. Wait the process until it finished.
+
+Take a look at your Shuffle in the browser, click the Show Executions button (people run icon). It will show the All Workflow Runs, just select one of it. We can see that the Shuffle already receive the alert from Wazuh as illustrated in Figure 16.
+
+![Enam Pn](/images/enam.png)
+
+Next, on the left panel, select Apps tab, type "IRIS" in the Search Active Apps bar. Click IRIS module (not IRIS V2), and wait until the IRIS v2 is show up. Then drag it to the middle panel as illustrated in Figure 17.
+
+![Tujuh Avi](/images/tujuh.avif)
+
+Click IRIS Module, then fill the following parameters:
+
+- Find Actions: **Add a new case**
+- Apikey: (insert your IRIS API Key)
+- Url: (your IRIS url)
+
+![Delapan Pn](/images/delapan.png)
+
+Next, scroll down to the Body parameter, and click the Expand Window button. Change the body content with the following:
+
+```
+{  
+"case_customer": "1",  
+"case_description": "Test from Shuffle",
+"case_name": "$change_me.title",
+"case_soc_id": "123",
+}
+```
+
+Then, click Try It button on the top right. Wait until the result is show up in the bottom. After that, click Submit button on the bottom right.
+
+![Sembilan Pn](/images/sembilan.png)
+
+Then, click Save button.
+
+Go to Show Executions button again, then click Refresh button as illustrated in Figure 20.
+
+![Sepuluh Pn](/images/sepuluh.png)
+
+It should be exist the IRIS process. Inside the IRIS module, the Status value should be 200, means that the automation of ticket creation is success, as illustrated in Figure 21.
+
+![Sebelas Pn](/images/sebelas.png)
+
+We can also check in the IRIS page (**https://\<your_ip\>:8443**), select Manage Case tab on the left panel. We can see the ticket created from Shuffle exists.
+
+![Duabelas Avi](/images/duabelas.avif)
+
+We have several use case that can be used and described in the next page.
+
+# Use Case
+
+## **Use Case 1: Malware Detection and Auto-Response**
+
+Execute step 12.
+
+Open your Wazuh page (**https://\<your_ip\>**).
+
+It would be appear an event about VirusTotal detect the malware, the deletion of the file, and the activated response regarding to the malware, illustrated in Figure 23.
+
+![Zero Avi](/images/zero.avif)
+
+We can also check in the IRIS to see the ticket that automatic created
+
+![One Pn](/images/one.png)
+
+## **Use Case 2: Web Defacement Detection**
+
+Execute step 13.
+
+Before simulate the web defacement, open the given link (**http://\<your_ip\>:3000**) in your browser. It will direct you to the example website that created by the script.
+
+![Two Pn](/images/two.png)
+
+Then, start the web defacement. It will change the website appearance.
+
+![Three Pn](/images/three.png)
+
+We can see in the Wazuh for the detection of file content changes. The rule id is 550 with the description is Integrity Checksum Changed.
+
+![Four Pn](/images/four.png)
