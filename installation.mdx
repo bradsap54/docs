@@ -111,7 +111,7 @@ Log in using **above mentioned credentials**. After log in, you should see Figur
 
 Next, open Shuffle dashboard.
 
-Create administrator account using \*\*above mentioned credentials \*\*and then login using the same credentials. After logged in, you should see Figure 11.
+Create administrator account using **above mentioned credentials** and then login using the same credentials. After logged in, you should see Figure 11.
 
 <Frame caption="Figure 11. Shuffle Dashboard">
   ![Image(6) Pn](/images/image\(6\).png)
@@ -149,17 +149,17 @@ In the **Main Menu**, type ‘**3**’ and press Enter.
 The system will prompt you to enter the IRIS API key, as shown in Figure 14.
 
 <Frame caption="Figure 14. Input API KEY">
-  ![Image(7) Pn](/iris-wazuh-int.png)
+  ![Iris Wazuh Int Pn](/images/iris-wazuh-int.png)
 </Frame>
 
-To obtain it, navigate to the IRIS page, select the Administrator profile, then go to My Settings.
+To obtain it, navigate to the IRIS page, select the Administrator profile, then go to **My Settings**.
 
 <img
-  src="/images/image.png"
-  alt="image.png"
-  title="image.png"
+  src="/images/iris-wazuh-int2.png"
+  alt="Iris Wazuh Int2 Pn"
+  title="Iris Wazuh Int2 Pn"
   className="mx-auto"
-  style={{ width:"41%" }}
+  style={{ width:"66%" }}
 />
 
 The API key will be displayed.
@@ -168,7 +168,7 @@ The API key will be displayed.
 
 Copy and paste it to the installation, then press **Enter**. Wait until the process is finished.
 
-You’ll be prompted to enter your VirusTotal API key.
+Then, you’ll be prompted to enter your VirusTotal API key.
 
 <img
   src="/images/virustotalapi.png"
@@ -183,16 +183,16 @@ If you don’t have a VirusTotal account yet, please create one first in followi
 If you already have an account, log in, click your profile name, and select ‘API Key’ to view it.
 
 <img
-  src="/virus-total.png"
-  alt="image.png"
-  title="image.png"
+  src="/images/virus-total.png"
+  alt="Virus Total Pn"
+  title="Virus Total Pn"
   className="mx-auto"
-  style={{ width:"37%" }}
+  style={{ width:"34%" }}
 />
 
 Copy and paste it to the installation, then press **Enter**. Wait until the process is finished.
 
-You’ll be prompted to enter your Shuffle Webhook URL.
+Then, you’ll be prompted to enter your Shuffle Webhook URL.
 
 <img
   src="/images/webhook4.png"
@@ -207,7 +207,7 @@ To obtain the URL, follow the instructions below.
 - Select **Experienced**.
 - Select **New Workflow**.
 - Specify your preferred **workflow name**—for example, test. \> select **Done**.
-- In the left panel, select **Trigger** tab, then drag the \*\*Webhook \*\*to the middle panel as illustrated below.
+- In the left panel, select **Trigger** tab, then drag the **Webhook** to the middle panel as illustrated below.
 
   ![Webhook Pn](/images/webhook.png)
 - Click on **Webhook** module, then it will show up the configuration panel on the right.
@@ -216,11 +216,11 @@ To obtain the URL, follow the instructions below.
 ![Webhook5 Pn](/images/webhook5.png)
 
 - Paste it to the installation terminal, then press **Enter**. Wait until the process is finished.
-- Go back to the Shuffle, click the \*\*Start \*\*button as illustrated below.
+- Go back to the Shuffle, click the **Start** button as illustrated below.
 
 ![Webhook6 Pn](/images/webhook6.png)
 
-- Next, select the \*\*Shuffle \*\*module in the middle panel, then it will show up the configuration panel on the right.
+- Next, select the **Shuffle** module in the middle panel, then it will show up the configuration panel on the right.
   - In the "Find Actions" parameter, make sure to select '**Repeat back to me**'.
   - In the "Call" parameter, change the value to `$exec`, then click the **Save** button, as illustrated below.
 
@@ -246,13 +246,15 @@ Select **Run Anyway**.
   style={{ width:"80%" }}
 />
 
-It will show the All Workflow Runs, just select one of it. We can see that the Shuffle already receive the alert from Wazuh as illustrated in Figure 16.
+Then, you'll see the All Workflow Runs panel on the right side. 
 
-![Enam Pn](/images/enam.png)
+![Shuffle Pn](/images/shuffle.png)
 
-Next, on the left panel, select Apps tab, type "IRIS" in the Search Active Apps bar. Click IRIS module (not IRIS V2), and wait until the IRIS v2 is show up. Then drag it to the middle panel as illustrated in Figure 17.
+Next, on the left panel, select **Apps** tab, type "IRIS" in the Search Active Apps bar. Just click the **IRIS** module (not IRIS V2), and wait until the IRIS v2 is show up. 
 
-![Tujuh Avi](/images/tujuh.avif)
+Then drag it to the middle panel as illustrated below.
+
+![Iris Pn](/images/iris.png)
 
 Click IRIS Module, then fill the following parameters:
 
@@ -262,7 +264,11 @@ Click IRIS Module, then fill the following parameters:
 
 ![Delapan Pn](/images/delapan.png)
 
-Next, scroll down to the Body parameter, and click the Expand Window button. Change the body content with the following:
+Scroll down to the Body parameter, and click the Expand Window button. 
+
+![Iris2 Pn](/images/iris2.png)
+
+Change the body content with the following:
 
 ```
 {  
@@ -273,35 +279,95 @@ Next, scroll down to the Body parameter, and click the Expand Window button. Cha
 }
 ```
 
-Then, click Try It button on the top right. Wait until the result is show up in the bottom. After that, click Submit button on the bottom right.
+Then, click Try It button on the top right. Wait until the result is show up in the bottom. 
 
-![Sembilan Pn](/images/sembilan.png)
+![Iris3 Pn](/images/iris3.png)
 
-Then, click Save button.
+After that, click **Submit** button on the bottom right.
 
-Go to Show Executions button again, then click Refresh button as illustrated in Figure 20.
+Then, click **Save** button.
 
-![Sepuluh Pn](/images/sepuluh.png)
+<img
+  src="/images/save.png"
+  alt="Save Pn"
+  title="Save Pn"
+  className="mx-auto"
+  style={{ width:"20%" }}
+/>
 
-It should be exist the IRIS process. Inside the IRIS module, the Status value should be 200, means that the automation of ticket creation is success, as illustrated in Figure 21.
+Click the **Show Executions** button to open the **All Workflow Runs** panel. You should see alerts from Wazuh listed here.
 
-![Sebelas Pn](/images/sebelas.png)
+![Iris Shuffle Pn](/images/iris-shuffle.png)
 
-We can also check in the IRIS page (**https://\<your_ip\>:8443**), select Manage Case tab on the left panel. We can see the ticket created from Shuffle exists.
+Then, click on the alerts with the following icon.
+
+<img
+  src="/images/alerts.png"
+  alt="Alerts Pn"
+  title="Alerts Pn"
+  className="mx-auto"
+  style={{ width:"53%" }}
+/>
+
+If there’s nothing available yet, run the Brute-Force Simulation which is explained in Use Case section below in Use Case 1, then come back here.
+
+Then, click **Refresh** button as illustrated below.
+
+<img
+  src="/images/sepuluh.png"
+  alt="Sepuluh Pn"
+  className="mx-auto"
+  style={{ width:"47%" }}
+/>
+
+It should be exist the IRIS process. Inside the IRIS module, the Status value should be 200, means that the automation of ticket creation is success, as illustrated below.
+
+<img
+  src="/images/sebelas.png"
+  alt="Sebelas Pn"
+  className="mx-auto"
+  style={{ width:"52%" }}
+/>
+
+We can also check in the IRIS page (**https://\<your_ip\>:8443**), select **Manage Case** tab on the left panel. We can see the ticket created from Shuffle exists.
 
 ![Duabelas Avi](/images/duabelas.avif)
 
-We have several use case that can be used and described in the next page.
-
 # Use Case
 
-## **Use Case 1: Malware Detection and Auto-Response**
+![Main Menu Pn](/images/main-menu.png)
 
-Execute step 12.
+In the **Main Menu**, type ‘**4**’ and press Enter.
+
+## **Use Case 1: Brute-Force Simulation**
+
+<img
+  src="/images/poc.png"
+  alt="Poc Pn"
+  title="Poc Pn"
+  className="mx-auto"
+  style={{ width:"55%" }}
+/>
+
+In the **PoC Menu**, type ‘**1**’ and press Enter.
+
+![Poc 1 Pn](/images/poc-1.png)
+
+If prompted to continue connecting, type **yes** and press **Enter**.
+
+Multiple login attempts have been recorded in the Wazuh security events, indicating a potential security threat.
+
+![Brute Force Pn](/images/brute-force.png)
+
+These events will be closely monitored and analyzed by the security operations center (SOC) team to determine the source of the attempts and take appropriate action to mitigate any potential risk.
+
+## **Use Case 2: Malware Detection and Auto-Response**
+
+In the **PoC Menu**, type ‘**2**’ and press Enter.
 
 Open your Wazuh page (**https://\<your_ip\>**).
 
-It would be appear an event about VirusTotal detect the malware, the deletion of the file, and the activated response regarding to the malware, illustrated in Figure 23.
+It would be appear an event about VirusTotal detect the malware, the deletion of the file, and the activated response regarding to the malware, illustrated below.
 
 ![Zero Avi](/images/zero.avif)
 
@@ -309,9 +375,9 @@ We can also check in the IRIS to see the ticket that automatic created
 
 ![One Pn](/images/one.png)
 
-## **Use Case 2: Web Defacement Detection**
+## **Use Case 3: Web Defacement Detection**
 
-Execute step 13.
+In the **PoC Menu**, type ‘**3**’ and press Enter.
 
 Before simulate the web defacement, open the given link (**http://\<your_ip\>:3000**) in your browser. It will direct you to the example website that created by the script.
 
