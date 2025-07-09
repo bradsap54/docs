@@ -38,25 +38,43 @@ To install the main T-Guard components, you need to install from step 1 to step 
 
 ## **Step 1: Update System and Install Prerequisites**
 
-In the step 1, during update system and install prerequisites, if you encounter a popup, just click Ok.
+In the **Main Menu**, type ‘**1**’ and press Enter. 
 
-## **Step 2: Install Docker**
+This will update existing packages, install all necessary dependencies, and set up Docker.
 
-In the step 2, after Docker installation, to make sure the Docker service is running well, you can execute the following command:
+Wait for the process to complete and it will then return to the **Main Menu**.
 
-```
-sudo systemctl status docker
-```
+## **Step 2: Install T-Guard SOC Package**
 
-![Image(1) Avi](/images/image\(1\).avif)
+In the **Main Menu**, type ‘**2**’ and press Enter. 
 
-The green text indicates Docker is running well as illustrated in Figure 2.
+You’ll see a menu to choose the current network environment of your system for installing T-Guard, as shown in Figure 2.
 
-## **Step 3: Install Wazuh (SIEM)**
+<Frame caption="FIgure 2. Network Environtment Options">
+  <img
+    src="/images/network-env-choice.png"
+    alt="Network Env Choice Pn"
+    title="Network Env Choice Pn"
+    style={{ width:"100%" }}
+  />
+</Frame>
 
-We can proceed to the next step, installing Wazuh, which serves as SIEM. This step will take quite a long time, depending on the internet connection speed.
+If you are using a local virtual machine, such as VirtualBox or VMware, choose option ‘**1**’. 
 
-![Image(3) Pn](/images/image\(3\).png)
+If you are using a cloud-based virtual machine, such as Google Cloud Platform (GCP), Amazon Web Services (AWS), or Microsoft Azure, choose option ‘**2**’.
+
+The installation process will start sequentially, beginning with Wazuh (include deploy initial wazuh agent), followed by Shuffle, IRIS, and MISP, as shown in Figure 3, 4, 5, and 6, respectively.
+
+<Frame caption="Figure 3. Wazuh Installation">
+  ![Wazuh Inst Pn](/images/wazuh-inst.png)
+
+  ![Wazuh Inst 2 Pn](/images/wazuh-inst-2.png)
+</Frame>
+
+
+<Frame caption="Figure 4. Shuffle Installation">
+  ![Shuffle Inst Pn](/images/shuffle-inst.png)
+</Frame>
 
 After the Wazuh installation success, we deploy the Wazuh Agent in the machine. Insert your machine \*\*IP Address \*\*and **Wazuh Agent**. In example, as illustrated in Figure 4.
 
