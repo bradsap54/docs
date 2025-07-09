@@ -76,80 +76,76 @@ The installation process will start sequentially, beginning with Wazuh (include 
   ![Shuffle Inst Pn](/images/shuffle-inst.png)
 </Frame>
 
-After the Wazuh installation success, we deploy the Wazuh Agent in the machine. Insert your machine \*\*IP Address \*\*and **Wazuh Agent**. In example, as illustrated in Figure 4.
 
-![Image(2) Pn](/images/image\(2\).png)
+<Frame caption="Figure 5. IRIS-DFIR Instalation">
+  ![Iris Inst Pn](/images/iris-inst.png)
+</Frame>
 
-After the process is finished, go to your browser and check your Wazuh by following this link:
 
-**https://\<your_ip\>**
+<Frame caption="Figure 6. MISP Installation">
+  ![Misp Inst Pn](/images/misp-inst.png)
+</Frame>
 
-![Image(4) Pn](/images/image\(4\).png)
+Once the process is complete, a table will appear displaying dashboard access details and credentials for each module, as shown in Figure 7.
 
-You will see a warning from the browser that the certificate is invalid as illustrated in Figure 5. This is normal because we haven’t installed the signed SSL certificate, which is recommended for production. For now, just click proceed.
+<Frame caption="Figure 7. Dashboard Access and Default Credentials">
+  ![Dashboard Pn](/images/dashboard.png)
+</Frame>
 
-The first page of Wazuh should be as illustrated in Figure 6.
+Open your browser and follow the link to access your dashboard.
 
-![Image(2) Avi](/images/image\(2\).avif)
+<Frame caption="Figure 8. Warning Page">
+  ![Image(4) Pn](/images/image\(4\).png)
+</Frame>
 
-Log in using **the credentials mentioned at the bottom of the page**. After log in, you should see Figure 7
+You will see a warning from the browser that the certificate is invalid as illustrated in Figure 8. This is normal because we haven’t installed the signed SSL certificate, which is recommended for production. For now, just click proceed.
 
-![Image(5) Pn](/images/image\(5\).png)
+The first page of Wazuh should be as illustrated in Figure 9.
 
-## **Step 4: Install Shuffle (SOAR)**
+<Frame caption="Figure 9. Wazuh Login Page">
+  ![Image(2) Avi](/images/image\(2\).avif)
+</Frame>
 
-Proceed installing Shuffle by execute step 4.
+Log in using **above mentioned credentials**. After log in, you should see Figure 10.
 
-After installation process is finished, go to your browser and check your Shuffle by following this link:
+<Frame caption="Figure 10. Wazuh Dashboard">
+  ![Image(5) Pn](/images/image\(5\).png)
+</Frame>
 
-**http://\<ip\>:3001**
+Next, open Shuffle dashboard.
 
-Create administrator account and login using the credentials mentioned at the bottom of the page. After log in, you should see Figure 8.
+Create administrator account using **above mentioned credentials **and then login using the same credentials. After logged in, you should see Figure 11.
 
-![Image(6) Pn](/images/image\(6\).png)
+<Frame caption="Figure 11. Shuffle Dashboard">
+  ![Image(6) Pn](/images/image\(6\).png)
+</Frame>
 
-## **Step 5: Install DFIR-IRIS (Incident Response/Ticketing)**
+Next, open IRIS dashboard.
 
-Execute step 5.
+Sign in using **above mentioned credentials**. After logged in, you should see Figure 12.
 
-After installation process is finished, go to your browser and check your IRIS by following this link:
+<Frame caption="Figure 12. IRIS Dashboard">
+  ![Image(3) Avi](/images/image\(3\).avif)
+</Frame>
 
-**https://\<ip\>:8443**
+Next, open MISP dashboard.
 
-Sign in using the credentials mentioned at the bottom of the page. After log in, you should see Figure 9.
+Sign in using **above mentioned credentials**. After logged in, you should see Figure 13.
 
-![Image(3) Avi](/images/image\(3\).avif)
+<Frame caption="Figure 13. MISP Dashboard">
+  ![Image(7) Pn](/images/image\(7\).png)
+</Frame>
 
-## **Step 6: Install MISP (Threat Intell)**
+**Default credentials for T-Guard:**
 
-Execute step 6.
+| **Service** | **Web Interface**   | **Username**     | **Password**           |
+| ----------- | ------------------- | ---------------- | ---------------------- |
+| Wazuh       | https://\<ip\>      | admin            | SecretPassword         |
+| DFIR-IRIS   | https://\<ip\>:8443 | administrator    | MySuperAdminPassword\! |
+| Shuffle     | http://\<ip\>:3001  | administrator    | MySuperAdminPassword\! |
+| MISP        | https://\<ip\>:1443 | admin@admin.test | admin                  |
 
-After installation process is finished, go to your browser and check your MISP by following this link:
-
-**https://\<ip\>:1443**
-
-Sign in using the credentials mentioned at the bottom of the page. After log in, you should see Figure 10.
-
-![Image(7) Pn](/images/image\(7\).png)
-
-## **Additional Step (Only for "minimum requirement" system)**
-
-Execute step 15, to activate swap memory.
-
-**_This is the final step of the Installation Steps phase. Next, we will Integrate all the module in the next page (Integration Steps)._**
-
-**The default credential for T-Guard:**
-
-| **Service** | **Web Interface**   | **Username**                                | **Password**           |
-| ----------- | ------------------- | ------------------------------------------- | ---------------------- |
-| Wazuh       | https://\<ip\>      | admin                                       | SecretPassword         |
-| DFIR-IRIS   | https://\<ip\>:8443 | administrator                               | MySuperAdminPassword\! |
-| Shuffle     | http://\<ip\>:3001  | administrator                               | MySuperAdminPassword\! |
-| MISP        | https://\<ip\>:1443 | [admin@admin.test](mailto:admin@admin.test) | admin                  |
-
-## Integration Steps
-
-**Step 7: Integration IRIS and Wazuh**
+# Integration Steps
 
 Execute step 7.
 
