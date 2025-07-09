@@ -14,7 +14,7 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Installation",
+            "group": "T-Guard SOC Package",
             "pages": [
               "index",
               "installation"
