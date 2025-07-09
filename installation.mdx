@@ -38,7 +38,7 @@ To install the main T-Guard components, you need to install from step 1 to step 
 
 ## **Step 1: Update System and Install Prerequisites**
 
-In the **Main Menu**, type ‘**1**’ and press Enter. 
+In the **Main Menu**, type ‘**1**’ and press Enter.
 
 This will update existing packages, install all necessary dependencies, and set up Docker.
 
@@ -46,7 +46,7 @@ Wait for the process to complete and it will then return to the **Main Menu**.
 
 ## **Step 2: Install T-Guard SOC Package**
 
-In the **Main Menu**, type ‘**2**’ and press Enter. 
+In the **Main Menu**, type ‘**2**’ and press Enter.
 
 You’ll see a menu to choose the current network environment of your system for installing T-Guard, as shown in Figure 2.
 
@@ -59,7 +59,7 @@ You’ll see a menu to choose the current network environment of your system for
   />
 </Frame>
 
-If you are using a local virtual machine, such as VirtualBox or VMware, choose option ‘**1**’. 
+If you are using a local virtual machine, such as VirtualBox or VMware, choose option ‘**1**’.
 
 If you are using a cloud-based virtual machine, such as Google Cloud Platform (GCP), Amazon Web Services (AWS), or Microsoft Azure, choose option ‘**2**’.
 
@@ -71,16 +71,13 @@ The installation process will start sequentially, beginning with Wazuh (include 
   ![Wazuh Inst 2 Pn](/images/wazuh-inst-2.png)
 </Frame>
 
-
 <Frame caption="Figure 4. Shuffle Installation">
   ![Shuffle Inst Pn](/images/shuffle-inst.png)
 </Frame>
 
-
 <Frame caption="Figure 5. IRIS-DFIR Instalation">
   ![Iris Inst Pn](/images/iris-inst.png)
 </Frame>
-
 
 <Frame caption="Figure 6. MISP Installation">
   ![Misp Inst Pn](/images/misp-inst.png)
@@ -114,7 +111,7 @@ Log in using **above mentioned credentials**. After log in, you should see Figur
 
 Next, open Shuffle dashboard.
 
-Create administrator account using **above mentioned credentials **and then login using the same credentials. After logged in, you should see Figure 11.
+Create administrator account using \*\*above mentioned credentials \*\*and then login using the same credentials. After logged in, you should see Figure 11.
 
 <Frame caption="Figure 11. Shuffle Dashboard">
   ![Image(6) Pn](/images/image\(6\).png)
@@ -136,70 +133,120 @@ Sign in using **above mentioned credentials**. After logged in, you should see F
   ![Image(7) Pn](/images/image\(7\).png)
 </Frame>
 
-**Default credentials for T-Guard:**
+### **Credential Summary – T-Guard Modules**
 
-| **Service** | **Web Interface**   | **Username**     | **Password**           |
-| ----------- | ------------------- | ---------------- | ---------------------- |
-| Wazuh       | https://\<ip\>      | admin            | SecretPassword         |
-| DFIR-IRIS   | https://\<ip\>:8443 | administrator    | MySuperAdminPassword\! |
-| Shuffle     | http://\<ip\>:3001  | administrator    | MySuperAdminPassword\! |
-| MISP        | https://\<ip\>:1443 | admin@admin.test | admin                  |
+| **Service** | **Web Interface**   | **Username**                                | **Password**           |
+| ----------- | ------------------- | ------------------------------------------- | ---------------------- |
+| Wazuh       | https://\<ip\>      | admin                                       | SecretPassword         |
+| DFIR-IRIS   | https://\<ip\>:8443 | administrator                               | MySuperAdminPassword\! |
+| Shuffle     | http://\<ip\>:3001  | administrator                               | MySuperAdminPassword\! |
+| MISP        | https://\<ip\>:1443 | [admin@admin.test](mailto:admin@admin.test) | admin                  |
 
 # Integration Steps
 
-Execute step 7.
+In the **Main Menu**, type ‘**3**’ and press Enter.
 
-It will ask the IRIS API key. To get the API Key, go to IRIS page, select Administrator profile \> My Settings. The API Key will show up as illustrated in Figure 11.
+The system will prompt you to enter the IRIS API key, as shown in Figure 14.
+
+<Frame caption="Figure 14. Input API KEY">
+  ![Image(7) Pn](/iris-wazuh-int.png)
+</Frame>
+
+To obtain it, navigate to the IRIS page, select the Administrator profile, then go to My Settings.
+
+<img
+  src="/images/image.png"
+  alt="image.png"
+  title="image.png"
+  className="mx-auto"
+  style={{ width:"41%" }}
+/>
+
+The API key will be displayed.
 
 ![Satu Pn](/images/satu.png)
 
-Copy and paste it to the installation. Wait until the process is finished.
+Copy and paste it to the installation, then press **Enter**. Wait until the process is finished.
 
-Then check the integration by select Alert menu in the left panel of the IRIS. It should be still "0 Alert".
+You’ll be prompted to enter your VirusTotal API key.
 
-We need to trigger the alert, by execute the step 14 (Brute Force Use Case). After that, refresh the page and the first alert should be show up as illustrated in Figure 12.
+<img
+  src="/images/virustotalapi.png"
+  alt="Virustotalapi Pn"
+  title="Virustotalapi Pn"
+  style={{ width:"68%" }}
+/>
 
-![Dua Pn](/images/dua.png)
+If you don’t have a VirusTotal account yet, please create one first in following URL:\
+[https://www.virustotal.com/](https://www.virustotal.com/gui/home/upload)
 
-## **Step 8: Integration MISP and Wazuh**
+If you already have an account, log in, click your profile name, and select ‘API Key’ to view it.
 
-Execute the step 8. Wait until it finished.
+<img
+  src="/virus-total.png"
+  alt="image.png"
+  title="image.png"
+  className="mx-auto"
+  style={{ width:"37%" }}
+/>
 
-## **Step 9: Integration VirusTotal and Wazuh**
+Copy and paste it to the installation, then press **Enter**. Wait until the process is finished.
 
-Execute step 9.
+You’ll be prompted to enter your Shuffle Webhook URL. 
 
-It will ask the VirusTotal API key. If you not yet have the VirusTotal account, please create the VirusTotal account first. If you already have it, Log in to VirusTotal, then  click your profile name, select API Key.
+<img
+  src="/images/webhook4.png"
+  alt="Webhook4 Pn"
+  title="Webhook4 Pn"
+  style={{ width:"49%" }}
+/>
 
-Copy and paste it to the installation. Wait until the process is finished.
+To obtain the URL, follow the instructions below.
 
-## **Step 10: Integration Shuffle, Wazuh, and IRIS**
+- Go to your Shuffle dashboard.
+- Select **Experienced**.
+- Select **New Workflow**.
+- Specify your preferred **workflow name**—for example, test. \> select **Done**.
+- In the left panel, select **Trigger** tab, then drag the **Webhook **to the middle panel as illustrated below.
 
-In your browser, go to your Shuffle (**http://\<ip\>:3001**).
+  ![Webhook Pn](/images/webhook.png)
+- Click on **Webhook** module, then it will show up the configuration panel on the right.
+  - In the "Webhook URL" parameter, manually copy the URL by **highlighting it until the end of the url**, then press **Ctrl\+C**.
 
-Select Workflow \> New Workflow.
+![Webhook5 Pn](/images/webhook5.png)
 
-Enter your workflow name \> select Done.
+- Paste it to the installation terminal, then press **Enter**. Wait until the process is finished.
+- Go back to the Shuffle, click the **Start **button as illustrated below.
 
-Select the Shuffle icon in the middle panel, then it will show up the configuration panel on the right. In the "Call" parameter, change it to `$exec`, then click Save button, as illustrated in Figure 13.
+![Webhook6 Pn](/images/webhook6.png)
 
-![Tiga Pn](/images/tiga.png)
+- Next, select the **Shuffle **module in the middle panel, then it will show up the configuration panel on the right.
+  - In the "Find Actions" parameter, make sure to select '**Repeat back to me**'.
+  - In the "Call" parameter, change the value to `$exec`, then click the **Save** button, as illustrated below.
 
-Next, in the left panel, select Trigger tab, then drag the Webhook to the middle panel as illustrated in Figure 14.
+  ![Webhook7 Pn](/images/webhook7.png)
 
-![Empat Pn](/images/empat.png)
+Click the **Test Execution** button (play icon). 
 
-The Webhook module, will be as an alert/event feed from Wazuh.
+<img
+  src="/images/play.png"
+  alt="Play Pn"
+  title="Play Pn"
+  className="mx-auto"
+  style={{ width:"20%" }}
+/>
 
-To integrate the Webhook with Wazuh, click on Webhook module. On the right panel, go to "Webhook URI" parameter and copy it, also click the Start button as illustrated in Figure 15.
+Select **Run Anyway**.
 
-![Lima Pn](/images/lima.png)
+<img
+  src="/images/run-anyway.png"
+  alt="Run Anyway Pn"
+  title="Run Anyway Pn"
+  className="mx-auto"
+  style={{ width:"80%" }}
+/>
 
-Go back to installer and execute step 10.
-
-It will ask the Shuffle Hook URL, paste the Webhook URI to it. Wait the process until it finished.
-
-Take a look at your Shuffle in the browser, click the Show Executions button (people run icon). It will show the All Workflow Runs, just select one of it. We can see that the Shuffle already receive the alert from Wazuh as illustrated in Figure 16.
+It will show the All Workflow Runs, just select one of it. We can see that the Shuffle already receive the alert from Wazuh as illustrated in Figure 16.
 
 ![Enam Pn](/images/enam.png)
 
