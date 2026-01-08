@@ -7,6 +7,7 @@ sidebarTitle: "Installation"
 
 - Fresh machine with Ubuntu 24.04 LTS (other Linux OS may work as well, but not tested). We do not recommend using machines that have other services running except you understand what you are doing.
 - System Requirements:
+- Testing
 - Broadband internet connections
 
 |                                                                                         | **CPU** | **RAM**<br />**(GB)** | **Storage**<br />**(GB)** | **Remarks**                     |
@@ -135,12 +136,12 @@ Sign in using **above mentioned credentials**. After logged in, you should see F
 
 ### **Credential Summary – T-Guard Modules**
 
-| **Service** | **Web Interface**   | **Username**                                | **Password**           |
-| ----------- | ------------------- | ------------------------------------------- | ---------------------- |
-| Wazuh       | https://\<ip\>      | admin                                       | SecretPassword         |
-| DFIR-IRIS   | https://\<ip\>:8443 | administrator                               | MySuperAdminPassword\! |
-| Shuffle     | http://\<ip\>:3001  | administrator                               | MySuperAdminPassword\! |
-| MISP        | https://\<ip\>:1443 | [admin@admin.test](mailto:admin@admin.test) | admin                  |
+| **Service** | **Web Interface**   | **Username**                                | **Password**          |
+| ----------- | ------------------- | ------------------------------------------- | --------------------- |
+| Wazuh       | https://\<ip\>      | admin                                       | SecretPassword        |
+| DFIR-IRIS   | https://\<ip\>:8443 | administrator                               | MySuperAdminPassword! |
+| Shuffle     | http://\<ip\>:3001  | administrator                               | MySuperAdminPassword! |
+| MISP        | https://\<ip\>:1443 | [admin@admin.test](mailto:admin@admin.test) | admin                 |
 
 # Integration Steps
 
@@ -211,7 +212,7 @@ To obtain the URL, follow the instructions below.
 
   ![Webhook Pn](/images/webhook.png)
 - Click on **Webhook** module, then it will show up the configuration panel on the right.
-  - In the "Webhook URL" parameter, manually copy the URL by **highlighting it until the end of the url**, then press **Ctrl\+C**.
+  - In the "Webhook URL" parameter, manually copy the URL by **highlighting it until the end of the url**, then press **Ctrl+C**.
 
 ![Webhook5 Pn](/images/webhook5.png)
 
@@ -246,11 +247,11 @@ Select **Run Anyway**.
   style={{ width:"80%" }}
 />
 
-Then, you'll see the All Workflow Runs panel on the right side. 
+Then, you'll see the All Workflow Runs panel on the right side.
 
 ![Shuffle Pn](/images/shuffle.png)
 
-Next, on the left panel, select **Apps** tab, type "IRIS" in the Search Active Apps bar. Just click the **IRIS** module (not IRIS V2), and wait until the IRIS v2 is show up. 
+Next, on the left panel, select **Apps** tab, type "IRIS" in the Search Active Apps bar. Just click the **IRIS** module (not IRIS V2), and wait until the IRIS v2 is show up.
 
 Then drag it to the middle panel as illustrated below.
 
@@ -264,7 +265,7 @@ Click IRIS Module, then fill the following parameters:
 
 ![Delapan Pn](/images/delapan.png)
 
-Scroll down to the Body parameter, and click the Expand Window button. 
+Scroll down to the Body parameter, and click the Expand Window button.
 
 ![Iris2 Pn](/images/iris2.png)
 
@@ -279,7 +280,7 @@ Change the body content with the following:
 }
 ```
 
-Then, click Try It button on the top right. Wait until the result is show up in the bottom. 
+Then, click Try It button on the top right. Wait until the result is show up in the bottom.
 
 ![Iris3 Pn](/images/iris3.png)
 
