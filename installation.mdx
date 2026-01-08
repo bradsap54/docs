@@ -52,7 +52,7 @@ You’ll see a menu to choose the current network environment of your system for
 
 <Frame caption="FIgure 2. Network Environtment Options">
   <img
-    src="/images/network-env-choice.png"
+    src="/images/Network-Environment-Options.png"
     alt="Network Env Choice Pn"
     title="Network Env Choice Pn"
     style={{ width:"100%" }}
@@ -66,33 +66,31 @@ If you are using a cloud-based virtual machine, such as Google Cloud Platform (G
 The installation process will start sequentially, beginning with Wazuh (include deploy initial wazuh agent), followed by Shuffle, IRIS, and MISP, as shown in Figure 3, 4, 5, and 6, respectively.
 
 <Frame caption="Figure 3. Wazuh Installation">
-  ![Wazuh Inst Pn](/images/wazuh-inst.png)
-
-  ![Wazuh Inst 2 Pn](/images/wazuh-inst-2.png)
+  ![Wazuh Inst Pn](/images/Wazuh-Installation.png)
 </Frame>
 
 <Frame caption="Figure 4. Shuffle Installation">
-  ![Shuffle Inst Pn](/images/shuffle-inst.png)
+  ![Shuffle Inst Pn](/images/Shuffle-Installation.png)
 </Frame>
 
 <Frame caption="Figure 5. IRIS-DFIR Instalation">
-  ![Iris Inst Pn](/images/iris-inst.png)
+  ![Iris Inst Pn](/images/IRIS-Installation.png)
 </Frame>
 
 <Frame caption="Figure 6. MISP Installation">
-  ![Misp Inst Pn](/images/misp-inst.png)
+  ![Misp Inst Pn](/images/MISP-Installation.png)
 </Frame>
 
 Once the process is complete, a table will appear displaying dashboard access details and credentials for each module, as shown in Figure 7.
 
 <Frame caption="Figure 7. Dashboard Access and Default Credentials">
-  ![Dashboard Pn](/images/dashboard.png)
+  ![Dashboard Pn](/images/Dashboard-Access.png)
 </Frame>
 
 Open your browser and follow the link to access your dashboard.
 
 <Frame caption="Figure 8. Warning Page">
-  ![Image(4) Pn](/images/image\(4\).png)
+  ![Image(4) Pn](/images/Warning-page.png)
 </Frame>
 
 You will see a warning from the browser that the certificate is invalid as illustrated in Figure 8. This is normal because we haven’t installed the signed SSL certificate, which is recommended for production. For now, just click proceed.
@@ -100,7 +98,7 @@ You will see a warning from the browser that the certificate is invalid as illus
 The first page of Wazuh should be as illustrated in Figure 9.
 
 <Frame caption="Figure 9. Wazuh Login Page">
-  ![Image(2) Avi](/images/image\(2\).avif)
+  ![Image(2) Avi](/images/wazuh-dashboard.png)
 </Frame>
 
 Log in using **above mentioned credentials**. After log in, you should see Figure 10.
@@ -114,7 +112,7 @@ Next, open Shuffle dashboard.
 Create administrator account using **above mentioned credentials** and then login using the same credentials. After logged in, you should see Figure 11.
 
 <Frame caption="Figure 11. Shuffle Dashboard">
-  ![Image(6) Pn](/images/image\(6\).png)
+  ![Image(6) Pn](/images/shuffle-dashboard.png)
 </Frame>
 
 Next, open IRIS dashboard.
@@ -122,7 +120,7 @@ Next, open IRIS dashboard.
 Sign in using **above mentioned credentials**. After logged in, you should see Figure 12.
 
 <Frame caption="Figure 12. IRIS Dashboard">
-  ![Image(3) Avi](/images/image\(3\).avif)
+  ![Image(3) Avi](/images/iris-dashboards.png)
 </Frame>
 
 Next, open MISP dashboard.
@@ -130,7 +128,7 @@ Next, open MISP dashboard.
 Sign in using **above mentioned credentials**. After logged in, you should see Figure 13.
 
 <Frame caption="Figure 13. MISP Dashboard">
-  ![Image(7) Pn](/images/image\(7\).png)
+  ![Image(7) Pn](/images/misp-dashboard.png)
 </Frame>
 
 ### **Credential Summary – T-Guard Modules**
@@ -149,13 +147,13 @@ In the **Main Menu**, type ‘**3**’ and press Enter.
 The system will prompt you to enter the IRIS API key, as shown in Figure 14.
 
 <Frame caption="Figure 14. Input API KEY">
-  ![Iris Wazuh Int Pn](/images/iris-wazuh-int.png)
+  ![Iris Wazuh Int Pn](/images/iris-int-wazuh.png)
 </Frame>
 
 To obtain it, navigate to the IRIS page, select the Administrator profile, then go to **My Settings**.
 
 <img
-  src="/images/iris-wazuh-int2.png"
+  src="/images/iris-int-wazuh2.png"
   alt="Iris Wazuh Int2 Pn"
   title="Iris Wazuh Int2 Pn"
   className="mx-auto"
@@ -164,19 +162,19 @@ To obtain it, navigate to the IRIS page, select the Administrator profile, then 
 
 The API key will be displayed.
 
-![Satu Pn](/images/satu.png)
+![IRIS API Key Display](/images/iris-api-key.png)
 
 Copy and paste it to the installation, then press **Enter**. Wait until the process is finished.
 
 During the installation process, you will be prompted to enter several integration parameters. Please follow the instructions below carefully.
 
-(Gambar)
+![Integration Parameters](/images/integration-prompt.png)
 
-# SHUFFLE WEBHOOK URL
+# Shuffle Webhook URL
 Then, you’ll be prompted to enter your Shuffle Webhook URL.
 
 <img
-  src="/images/webhook4.png"
+  src="/images/shuffle-integration.png"
   alt="Webhook4 Pn"
   title="Webhook4 Pn"
   style={{ width:"49%" }}
@@ -187,36 +185,65 @@ To obtain the URL, follow the instructions below.
 - Go to your Shuffle dashboard.
 - Select **Workflows**.
 - Select **Create Workflow**.
-- Specify your preferred **workflow name**—for example, Sample workflow. \> select Create from scratch.
-- In the left panel, under the Triggers tab drag the Webhook logo to the middle panel as illustrated below.
+- Specify your preferred **workflow name**—for example, *Sample workflow* — then select **Create from scratch**.
+- In the left panel, under the **Triggers** tab, drag the **Webhook** icon to the middle panel as illustrated below.
 
-GAMBAR 1
+---
 
-GAMBAR
+### Step 1: Create a New Workflow
 
-GAMBAR
+<img
+  src="/images/shuffle-workflow-create.png"
+  alt="Creating a new workflow in Shuffle"
+  title="Shuffle Create Workflow"
+  width="70%"
+  style="display:block;margin:auto;"
+/>
 
-  ![Webhook Pn](/images/webhook.png)
+---
+
+### Step 2: Select Create from Scratch
+
+<img
+  src="/images/shuffle-create-from-scratch.png"
+  alt="Create workflow from scratch in Shuffle"
+  title="Shuffle Create from Scratch"
+  width="70%"
+  style="display:block;margin:auto;"
+/>
+
+---
+
+### Step 3: Add Webhook Trigger
+
+<img
+  src="/images/shuffle-webhook-trigger.png"
+  alt="Adding webhook trigger in Shuffle workflow"
+  title="Shuffle Webhook Trigger"
+  width="70%"
+  style="display:block;margin:auto;"
+/>
+
 - Click on **Webhook** module, then it will show up the configuration panel on the right.
   - In the "Webhook URL" parameter, manually copy the URL by **highlighting it until the end of the url**, then press **Ctrl+C**.
 
-![Webhook5 Pn](/images/webhook5.png)
+![Webhook5 Pn](/images/webhook-url.jpeg)
 
 - Paste it to the installation terminal, then press **Enter**. Wait until the process is finished.
 - Go back to the Shuffle, click the **Start** button as illustrated below.
 
-![Webhook6 Pn](/images/webhook6.png)
+![Webhook6 Pn](/images/webhook-start.png)
 
 - Next, select the **Shuffle** module in the middle panel, then it will show up the configuration panel on the right.
   - In the "Find Actions" parameter, make sure to select '**Repeat back to me**'.
   - In the "Call" parameter, change the value to `$exec`, then click the **Save** button, as illustrated below.
 
-  ![Webhook7 Pn](/images/webhook7.png)
+  ![Webhook7 Pn](/images/webhook-node.png)
 
 Click the **Test Execution** button (play icon).
 
 <img
-  src="/images/play.png"
+  src="/images/test-icon.png"
   alt="Play Pn"
   title="Play Pn"
   className="mx-auto"
@@ -226,7 +253,7 @@ Click the **Test Execution** button (play icon).
 Select **Run without Runtime Argument**.
 
 <img
-  src="/images/run-anyway.png"
+  src="/images/run-argument.png"
   alt="Run Anyway Pn"
   title="Run Anyway Pn"
   className="mx-auto"
@@ -235,13 +262,13 @@ Select **Run without Runtime Argument**.
 
 Then, you'll see the All Workflow Runs panel on the right side.
 
-![Shuffle Pn](/images/shuffle.png)
+![Shuffle Pn](/images/shuffle-run.jpeg)
 
 Next, on the left panel, select Apps tab, type **IRIS** in the Search Active Apps bar. Just click the **IRIS V2** (not IRIS V2 Fork), and wait until the **IRIS v2** is show up
 
 Then drag it to the middle panel as illustrated below.
 
-![Iris Pn](/images/iris.png)
+![Iris Pn](/images/iris-workflow.jpeg)
 
 Click IRIS Module, then fill the following parameters:
 
@@ -249,13 +276,59 @@ Click IRIS Module, then fill the following parameters:
 - Apikey: (insert your IRIS API Key)
 - Url: (your IRIS url)
 
+Before proceeding to the **Advanced** settings on the right side, you must first configure **Authentication** for the IRIS module.
+
+## Configure IRIS Authentication
+
+1. In the Shuffle workflow editor, click the **IRIS module**.
+2. Locate the **Authentication** section.
+3. Click the **`+` (Add Authentication)** button.
+4. Select **IRIS_API** as the authentication type.
+5. Fill in the required fields:
+   - **API Key**: Paste your IRIS API Key
+   - **URL**: Enter your IRIS base URL (for example: `https://192.168.101:8443`)
+6. Click **Submit**.
+7. Ensure the authentication status shows **Valid**.
+
+<img
+  src="/images/iris-add-authentication.jpeg"
+  alt="Adding IRIS authentication in Shuffle"
+  title="Add IRIS Authentication"
+  width="70%"
+  style="display:block;margin:auto;"
+/>
+
+<img
+  src="/images/iris-authentication.jpeg"
+  alt="IRIS authentication configuration with API key and URL"
+  title="IRIS Authentication Configuration"
+  width="70%"
+  style="display:block;margin:auto;"
+/>
+
+---
+
+## Configure IRIS Action
+
+After authentication is successfully configured, continue with the action setup.
+
+1. Under **Find Actions**, select **Add a new case**.
+2. Verify that the **Authentication** field is set to **IRIS_API**.
+3. Ensure the following parameters are filled:
+   - **Find Actions**: **Add a new case**
+   - **Authentication**: **IRIS_API**
+   - **API Key**: Automatically loaded from authentication
+   - **URL**: Automatically loaded from authentication
+
+---
+
 Choose the Advanced on the right side, and click the Expand Window Button.
 
-![Delapan Pn](/images/delapan.png)
+![Delapan Pn](/images/iris-advanced.jpeg)
 
 Scroll down to the Body parameter, and click the Expand Window button.
 
-![Iris2 Pn](/images/iris2.png)
+![Iris2 Pn](/images/iris-body.jpeg)
 
 Change the body content with the following:
 
@@ -279,14 +352,12 @@ $exec.full_log",
 
 Then, click Try It button on the top right. Wait until the result is show up in the bottom.
 
-![Iris3 Pn](/images/iris3.png)
-
 After that, click **Submit** button on the bottom right.
 
 Then, click **Save** button.
 
 <img
-  src="/images/save.png"
+  src="/images/save-workflow.png"
   alt="Save Pn"
   title="Save Pn"
   className="mx-auto"
@@ -295,7 +366,7 @@ Then, click **Save** button.
 
 Click the **Show Executions** button to open the **All Workflow Runs** panel. You should see alerts from Wazuh listed here.
 
-![Iris Shuffle Pn](/images/iris-shuffle.png)
+![Iris Shuffle Pn](/images/iris-output.png)
 
 Then, click on the alerts with the following icon.
 
@@ -312,7 +383,7 @@ If there’s nothing available yet, run the Brute-Force Simulation which is expl
 Then, click **Refresh** button as illustrated below.
 
 <img
-  src="/images/sepuluh.png"
+  src="/images/iris-refresh.jpeg"
   alt="Sepuluh Pn"
   className="mx-auto"
   style={{ width:"47%" }}
@@ -321,7 +392,7 @@ Then, click **Refresh** button as illustrated below.
 It should be exist the IRIS process. Inside the IRIS module, the Status value should be 200, means that the automation of ticket creation is success, as illustrated below.
 
 <img
-  src="/images/sebelas.png"
+  src="/images/output-iris-workflow.png"
   alt="Sebelas Pn"
   className="mx-auto"
   style={{ width:"52%" }}
@@ -329,7 +400,7 @@ It should be exist the IRIS process. Inside the IRIS module, the Status value sh
 
 We can also check in the IRIS page (**https://\<your_ip\>:8443**), select **Manage Case** tab on the left panel. We can see the ticket created from Shuffle exists.
 
-![Duabelas Avi](/images/duabelas.avif)
+![Duabelas Avi](/images/iris-case.png)
 
 # Virus Total API Key
 Then, you’ll be prompted to enter your VirusTotal API key.
@@ -367,12 +438,72 @@ MISP API Key:
 ```
 Copy and paste your MISP API key, then press Enter.
 To obtain the MISP API key:
-  1. Log in to the MISP web interface
+  1. Log in to the MISP Dashboard
   2. Go to Administration → List Auth Keys
   3. Copy an existing key or create a new one
-  4. Paste the key into the installer
+  4. Paste the key into the terminal
 
-(Gambar)
+![MISP Dashboard](/images/misp-dashboard.png)
+
+![MISP List Auth Key](/images/misp-list-auth-key.png)
+
+![MISP Add Auth](/images/misp-add-authentication.png)
+
+![MISP Add Auth Key](/images/misp-add-auth.png)
+
+## MISP Default Feed Data (JSON)
+
+After configuring the MISP API key, the next step is to **add the default MISP feed sources** to enable threat intelligence ingestion.
+
+### Import Default Feeds from JSON
+
+1. Open the following GitHub URL in your browser:  
+   https://github.com/MISP/MISP/blob/2.4/app/files/feed-metadata/defaults.json
+
+2. Copy the entire JSON content from the page.
+
+3. In the **MISP Dashboard**, navigate to:
+   - **Sync Actions**
+   - **Feeds**
+   - **Import Feeds from JSON**
+
+4. Paste the copied JSON content into the input field.
+5. Click **Add** to import the feed configuration.
+
+![MISP Data Feed](/images/misp-data-feed.png)
+
+![MISP Feeds](/images/misp-feeds.png)
+
+![MISP Import](/images/misp-import.png)
+
+
+### Enable and Fetch Feed Data
+
+1. Go to **List Feeds**.
+2. Select **Check All** to select all available feeds.
+3. Click **Enable Selected** to activate the data sources.
+4. Click **Fetch and Store All Feed Data** to download threat intelligence data from each feed source.
+
+![MISP Checklist](/images/misp-checklist.png)
+
+> This process may take several minutes depending on the number of feeds and network conditions.
+
+---
+
+### Viewing Imported Feed Data
+
+- Retrieved threat intelligence events can be viewed under **Event Actions**.
+- Attributes generated from each event can be reviewed in **List Attributes**.
+
+![MISP List Events](/images/misp-list-events.png)
+
+![MISP List Events](/images/misp-list-attributes.png)
+
+These attributes are used as **IOC lookup values by Wazuh**, enabling correlation between detected events and known threat indicators.
+
+---
+
+Once this step is completed, MISP will actively provide threat intelligence data that can be consumed by **Wazuh** for IOC matching and alert enrichment.
 
 
 # Wazuh Dashboard URL
@@ -387,7 +518,6 @@ Example:
 ```
 https://192.168.0.108
 ```
-(Gambar)
 
 # Use Case
 
