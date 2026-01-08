@@ -139,7 +139,7 @@ Sign in using **above mentioned credentials**. After logged in, you should see F
 | ----------- | ------------------- | ------------------------------------------- | --------------------- |
 | Wazuh       | https://\<ip\>      | admin                                       | SecretPassword        |
 | DFIR-IRIS   | https://\<ip\>:8443 | administrator                               | MySuperAdminPassword! |
-| Shuffle     | http://\<ip\>:3001  | administrator                               | MySuperAdminPassword! |
+| Shuffle     | http://\<ip\>:3001  |  Create your own                             | Create your own |
 | MISP        | https://\<ip\>:1443 | [admin@admin.test](mailto:admin@admin.test) | admin                 |
 
 # Integration Steps
@@ -168,30 +168,11 @@ The API key will be displayed.
 
 Copy and paste it to the installation, then press **Enter**. Wait until the process is finished.
 
-Then, you’ll be prompted to enter your VirusTotal API key.
+During the installation process, you will be prompted to enter several integration parameters. Please follow the instructions below carefully.
 
-<img
-  src="/images/virustotalapi.png"
-  alt="Virustotalapi Pn"
-  title="Virustotalapi Pn"
-  style={{ width:"68%" }}
-/>
+(Gambar)
 
-If you don’t have a VirusTotal account yet, please create one first in following URL:\
-[https://www.virustotal.com/](https://www.virustotal.com/gui/home/upload)
-
-If you already have an account, log in, click your profile name, and select ‘API Key’ to view it.
-
-<img
-  src="/images/virus-total.png"
-  alt="Virus Total Pn"
-  title="Virus Total Pn"
-  className="mx-auto"
-  style={{ width:"34%" }}
-/>
-
-Copy and paste it to the installation, then press **Enter**. Wait until the process is finished.
-
+# SHUFFLE WEBHOOK URL
 Then, you’ll be prompted to enter your Shuffle Webhook URL.
 
 <img
@@ -204,10 +185,16 @@ Then, you’ll be prompted to enter your Shuffle Webhook URL.
 To obtain the URL, follow the instructions below.
 
 - Go to your Shuffle dashboard.
-- Select **Experienced**.
-- Select **New Workflow**.
-- Specify your preferred **workflow name**—for example, test. \> select **Done**.
-- In the left panel, select **Trigger** tab, then drag the **Webhook** to the middle panel as illustrated below.
+- Select **Workflows**.
+- Select **Create Workflow**.
+- Specify your preferred **workflow name**—for example, Sample workflow. \> select Create from scratch.
+- In the left panel, under the Triggers tab drag the Webhook logo to the middle panel as illustrated below.
+
+GAMBAR 1
+
+GAMBAR
+
+GAMBAR
 
   ![Webhook Pn](/images/webhook.png)
 - Click on **Webhook** module, then it will show up the configuration panel on the right.
@@ -236,7 +223,7 @@ Click the **Test Execution** button (play icon).
   style={{ width:"20%" }}
 />
 
-Select **Run Anyway**.
+Select **Run without Runtime Argument**.
 
 <img
   src="/images/run-anyway.png"
@@ -250,7 +237,7 @@ Then, you'll see the All Workflow Runs panel on the right side.
 
 ![Shuffle Pn](/images/shuffle.png)
 
-Next, on the left panel, select **Apps** tab, type "IRIS" in the Search Active Apps bar. Just click the **IRIS** module (not IRIS V2), and wait until the IRIS v2 is show up.
+Next, on the left panel, select Apps tab, type **IRIS** in the Search Active Apps bar. Just click the **IRIS V2** (not IRIS V2 Fork), and wait until the **IRIS v2** is show up
 
 Then drag it to the middle panel as illustrated below.
 
@@ -262,6 +249,8 @@ Click IRIS Module, then fill the following parameters:
 - Apikey: (insert your IRIS API Key)
 - Url: (your IRIS url)
 
+Choose the Advanced on the right side, and click the Expand Window Button.
+
 ![Delapan Pn](/images/delapan.png)
 
 Scroll down to the Body parameter, and click the Expand Window button.
@@ -272,10 +261,19 @@ Change the body content with the following:
 
 ```
 {  
-"case_customer": "1",  
-"case_description": "Test from Shuffle",
-"case_name": "$change_me.title",
-"case_soc_id": "123",
+{
+  "case_customer": 1,
+  "case_soc_id": 1,
+  "cid": 1,
+  "case_name":
+"$exec.rule.description",
+  "case_description": "Log Level:
+$exec.rule.level \n\n Full Log:
+$exec.full_log",
+  "case_severity_id": 2,
+  "case_status_id": 1,
+  "ioc": "$exec.data.srcip"
+}
 }
 ```
 
@@ -332,6 +330,64 @@ It should be exist the IRIS process. Inside the IRIS module, the Status value sh
 We can also check in the IRIS page (**https://\<your_ip\>:8443**), select **Manage Case** tab on the left panel. We can see the ticket created from Shuffle exists.
 
 ![Duabelas Avi](/images/duabelas.avif)
+
+# Virus Total API Key
+Then, you’ll be prompted to enter your VirusTotal API key.
+
+If you don’t have a VirusTotal account yet, please create one first in following URL:
+https://www.virustotal.com/
+
+If you already have an account, log in, click your profile name, and select ‘API Key’ to view it.
+Copy and paste it to the installation, then press Enter. Wait until the process is finished.
+<img
+  src="/images/virustotalapi.png"
+  alt="Virustotalapi Pn"
+  title="Virustotalapi Pn"
+  style={{ width:"68%" }}
+/>
+
+
+# MISP Configuration
+You will then be prompted to configure the MISP integration.
+MISP Base URL
+Example prompt:
+```
+MISP Base URL (default: https://<SERVER_IP>:1443):
+```
+If the default value is correct, you can simply press Enter. Otherwise, type your MISP Base URL and press Enter.
+Example:
+```
+https://192.168.0.108:1443
+```
+MISP API Key
+Next step, enter your MISP API Key.
+Example prompt:
+```
+MISP API Key:
+```
+Copy and paste your MISP API key, then press Enter.
+To obtain the MISP API key:
+  1. Log in to the MISP web interface
+  2. Go to Administration → List Auth Keys
+  3. Copy an existing key or create a new one
+  4. Paste the key into the installer
+
+(Gambar)
+
+
+# Wazuh Dashboard URL
+Finally, you will be prompted to enter the Wazuh Dashboard URL.
+Example prompt:
+```
+Wazuh Dashboard URL (default: https://<SERVER_IP>):
+```
+If the default value matches your setup, press Enter.
+Otherwise, enter the correct URL and press Enter.
+Example:
+```
+https://192.168.0.108
+```
+(Gambar)
 
 # Use Case
 
